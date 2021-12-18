@@ -1,0 +1,524 @@
+{
+	"info": {
+		"_postman_id": "dcee05fe-b1c6-44c1-a9b7-df0df28a0e3c",
+		"name": "empredimientos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "empredimiento",
+			"item": [
+				{
+					"name": "Crear Emprendimiento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"mate recicable\",\n    \"description\": \"Lorem Ipsum Ipso Facto\",\n    \"user_id\": 1,\n    \"tags\": [\"Mate\", \"Reciclable\", \"Argentina\"],\n    \"published\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8001/Emprendimientos/Create",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"Emprendimientos",
+								"Create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Todo por Tag",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "mat",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8001/Emprendimientos/GetAllByTag",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"Emprendimientos",
+								"GetAllByTag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Todo sin publicar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/Emprendimientos/GetAllNotPublished",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"Emprendimientos",
+								"GetAllNotPublished"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modificar un Emprendimiento",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"mate recicable\",\r\n    \"user_id\": 1,\r\n    \"tags\": [\r\n        \"Mate\",\r\n        \"Reciclable\",\r\n        \"Argentina\"\r\n    ],\r\n    \"description\": \"Descripcion\",\r\n    \"content\": \"Contenido\",\r\n    \"goal\": 100,\r\n    \"published\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8001/Emprendimientos/Update/?Id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"Emprendimientos",
+								"Update",
+								""
+							],
+							"query": [
+								{
+									"key": "Id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registrar a Evento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8001/Emprendimientos/RegisterToEvent/?empId=1&eventId=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"Emprendimientos",
+								"RegisterToEvent",
+								""
+							],
+							"query": [
+								{
+									"key": "empId",
+									"value": "1"
+								},
+								{
+									"key": "eventId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "usuario",
+			"item": [
+				{
+					"name": "Crear Usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Marge\",\n    \"lastName\": \"Simpson\",\n    \"email\": \"marge@gmail.com\",\n    \"password\": \"password\",\n    \"userType\": \"OWNER\",\n    \"country\": \"Argentina\",\n    \"province\": \"Chaco\",\n    \"city\": \"Barranqueras\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8001/Users/Create",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"Users",
+								"Create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modificar Usuario",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Marge\",\r\n    \"lastName\": \"Simpson\",\r\n    \"password\": \"password\",\r\n    \"email\": \"marge@gmail.com\",\r\n    \"userType\": \"OWNER\",\r\n    \"dateOfCreation\": \"2021-12-17T16:14:39.573976\",\r\n    \"city\": \"Resistencia\",\r\n    \"province\": \"Chaco\",\r\n    \"country\": \"Argentina\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8001/Users/Update/?Id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"Users",
+								"Update",
+								""
+							],
+							"query": [
+								{
+									"key": "Id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtenter Todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8001/Users/GetAll",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"Users",
+								"GetAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtenter Todos por Ciudad",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8001/Users/GetAll",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"Users",
+								"GetAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtenter Todos por Fecha de Creacion Despues De",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8001/Users/GetAll?dateFrom=2021-12-1",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"Users",
+								"GetAll"
+							],
+							"query": [
+								{
+									"key": "dateFrom",
+									"value": "2021-12-1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BorrarPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Votos",
+			"item": [
+				{
+					"name": "Crear Voto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"emprendimientoId\": 1,\r\n    \"userId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8001/Votes/Add/",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"Votes",
+								"Add",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener votos de un Usuario",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "2,{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8001/Votes/findVotesOfUser/",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"Votes",
+								"findVotesOfUser",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Evento",
+			"item": [
+				{
+					"name": "Crear Evento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Evento 1\",\r\n    \"details\": \"Detalles del evento 1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8001/Events/Create/",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"Events",
+								"Create",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar Evento",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8001/Events/Delete/?id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"Events",
+								"Delete",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modificar Evento",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Evento 1\",\r\n    \"details\": \"Detalles del evento 1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8001/Events/Update/?Id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"Events",
+								"Update",
+								""
+							],
+							"query": [
+								{
+									"key": "Id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rankings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8001/Events/Ranking/?id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"Events",
+								"Ranking",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
